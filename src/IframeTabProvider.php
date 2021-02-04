@@ -1,6 +1,6 @@
 <?php
 
-namespace JasperMosiboom\DcatIframeTab;
+namespace Mosiboom\DcatIframeTab;
 
 use Dcat\Admin\Layout\Content;
 use Illuminate\Support\ServiceProvider;

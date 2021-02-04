@@ -1,6 +1,6 @@
 <?php
 
-namespace JasperMosiboom\DcatIframeTab\Controllers;
+namespace Mosiboom\DcatIframeTab\Controllers;
 
 use Dcat\Admin\Layout\Content;
 use Illuminate\Routing\Controller;

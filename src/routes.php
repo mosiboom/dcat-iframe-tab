@@ -1,6 +1,6 @@
 <?php
 
-use JasperMosiboom\DcatIframeTab\Controllers\IframeController;
+use Mosiboom\DcatIframeTab\Controllers\IframeController;
 
 if (config('iframe_tab.enable')) {
     $attributes = [
