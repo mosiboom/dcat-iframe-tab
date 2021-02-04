@@ -1,0 +1,30 @@
+{
+    "name": "jasper/dcat-iframe-tab",
+    "description": "iframe-tab framework fro dcat-admin",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Jasper",
+            "email": "936022546@qq.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Jasper\\DcatIframeTab\\IframeTabProvider"
+            ],
+            "aliases": {
+                "IframeTab": "Jasper\\DcatIframeTab\\IframeTab"
+            },
+            "dont-discover": []
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Jasper\\DcatIframeTab\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=7.2.5"
+    }
+}
