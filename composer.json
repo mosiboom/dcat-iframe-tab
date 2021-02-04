@@ -1,7 +1,7 @@
 {
     "name": "mosiboom/dcat-iframe-tab",
     "description": "iframe-tab framework fro dcat-admin",
-    "type": "project",
+    "type": "laravel-extension",
     "authors": [
         {
             "name": "Jasper",
