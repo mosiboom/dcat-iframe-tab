@@ -15,7 +15,7 @@
 运行以下命令：
 
 ```
-$ composer require jasper/dcat-iframe-tab
+$ composer require mosiboom/dcat-iframe-tab
 ```
 
 然后运行：
