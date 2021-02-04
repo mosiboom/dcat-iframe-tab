@@ -1,5 +1,5 @@
 {
-    "name": "jasper/dcat-iframe-tab",
+    "name": "JasperMosiboom/dcat-iframe-tab",
     "description": "iframe-tab framework fro dcat-admin",
     "type": "project",
     "authors": [
@@ -11,10 +11,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Jasper\\DcatIframeTab\\IframeTabProvider"
+                "JasperMosiboom\\DcatIframeTab\\IframeTabProvider"
             ],
             "aliases": {
-                "IframeTab": "Jasper\\DcatIframeTab\\IframeTab"
+                "IframeTab": "JasperMosiboom\\DcatIframeTab\\IframeTab"
             },
             "dont-discover": []
         }
