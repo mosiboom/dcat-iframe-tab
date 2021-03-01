@@ -2,6 +2,7 @@
 
 namespace Mosiboom\DcatIframeTab;
 
+use Dcat\Admin\Grid;
 use Dcat\Admin\Layout\Content;
 use Illuminate\Support\ServiceProvider;
 
@@ -19,6 +20,9 @@ class IframeTabProvider extends ServiceProvider
             $this->app->resolving(Content::class, function ($content, $app) {
                 //设置view 为 iframe.full-content
                 $content->view('iframe-tab::full-content');
+            });
+            Grid::resolving(function (Grid $grid) {
+                $grid->setDialogFormDimensions('50%','90vh');
             });
         }
     }
