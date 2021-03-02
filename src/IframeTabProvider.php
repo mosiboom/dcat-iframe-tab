@@ -22,7 +22,7 @@ class IframeTabProvider extends ServiceProvider
                 $content->view('iframe-tab::full-content');
             });
             Grid::resolving(function (Grid $grid) {
-                $grid->setDialogFormDimensions('50%','90vh');
+                $grid->setDialogFormDimensions(config('iframe_tab.dialog_area_width'), config('iframe_tab.dialog_area_height'));
             });
         }
     }
