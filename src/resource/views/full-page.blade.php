@@ -29,6 +29,19 @@
 
 <script>
     var Dcat = CreateDcat({!! Dcat\Admin\Admin::jsVariables() !!});
+    var storage = window.parent.localStorage || {setItem:function () {}, getItem: function () {}},
+        key = 'dcat-admin-theme-mode',
+        mode = storage.getItem(key)
+
+    Dcat.darkMode.display(mode === 'dark');
+
+    window.parent.$(window.parent.document).on('dark-mode.shown', function () {
+        Dcat.darkMode.display(true);
+    });
+
+    window.parent.$(window.parent.document).on('dark-mode.hide', function () {
+        Dcat.darkMode.display(false);
+    });
 </script>
 
 {{-- 页面埋点 --}}

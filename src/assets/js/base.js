@@ -20,6 +20,7 @@ $(function () {
     });
     /*管理元素*/
     const elements = {
+        iframe_tab_container: $('#iframe-tab-container'),
         iframe_tab: $('#iframe-tab'),
         iframe_tab_link: $('#iframe-tab .nav-link'),
         iframe_tabContent: $('#iframe-tabContent'),
@@ -406,6 +407,28 @@ $(function () {
             this.iframeTabEventRegister()
             /*右键事件注册*/
             this.rightClickEventRegister()
+            /*兼容dcat夜间模式*/
+            this.darkMode()
+        },
+        darkMode() {
+            const storage = window.parent.localStorage || {
+                    setItem: function () {
+                    }, getItem: function () {
+                    }
+                },
+                key = 'dcat-admin-theme-mode',
+                mode = storage.getItem(key)
+
+            if (mode === 'dark') {
+                elements.iframe_tab_container.addClass('sidebar-dark-white')
+            }
+            $(document).on('dark-mode.shown', function () {
+                elements.iframe_tab_container.addClass('sidebar-dark-white')
+            });
+
+            $(document).on('dark-mode.hide', function () {
+                elements.iframe_tab_container.removeClass('sidebar-dark-white')
+            });
         },
         /*生成ID*/
         generateID(href) {
