@@ -1,6 +1,6 @@
 <body
-    class="dcat-admin-body sidebar-mini layout-fixed {{ $configData['body_class']}} {{ $configData['sidebar_class'] }}
-    {{ $configData['navbar_class'] === 'fixed-top' ? 'navbar-fixed-top' : '' }} ">
+        class="dcat-admin-body sidebar-mini layout-fixed {{ $configData['body_class']}} {{ $configData['sidebar_class'] }}
+        {{ $configData['navbar_class'] === 'fixed-top' ? 'navbar-fixed-top' : '' }} ">
 
 <script>
     var Dcat = CreateDcat({!! Dcat\Admin\Admin::jsVariables() !!});
@@ -17,7 +17,7 @@
         @else
         {{config('iframe_tab.cache')?1:0}}
         @endif
-            ">
+                ">
         <input type="hidden" id="use_id" value="{{Admin::user()->id}}">
         {{--右键菜单监控--}}
         <div class="mouse-click-menu">
@@ -38,8 +38,8 @@
             </ul>
         </div>
         <div
-            class="iframe-tab-container {{empty(config('admin.layout')['body_class'])?'':'iframe-tab-'.config('admin.layout')['body_class']}}"
-            id="iframe-tab-container">
+                class="iframe-tab-container {{mosi_iframeTabBodyClass(config('admin.layout')['body_class'])}}"
+                id="iframe-tab-container">
             <div class="swiper-container">
                 <ul class="nav nav-pills mb-3 swiper-wrapper" id="iframe-tab" role="tablist"></ul>
             </div>

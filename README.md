@@ -48,12 +48,15 @@ This will override css and js files to `/public/vendor/laravel-admin-ext/iframe-
 
 ```php
 return [
-    'enable' => env('START_IFRAME_TAB', true),	//是否开启
-    'footer_setting' => [												//页脚配置
+    'enable' => env('START_IFRAME_TAB', true),	                            //是否开启
+    'footer_setting' => [							                        //页脚配置
         'copyright' => env('APP_NAME', ''),			
         'app_version' => env('APP_VERSION', '')
     ],
-    'cache' => env('IFRAME_TAB_CACHE', false)		//是否开启标签页缓存
+    'cache' => env('IFRAME_TAB_CACHE', false),		                        //是否开启标签页缓存
+    /**/
+    'dialog_area_width' => env('IFRAME_TAB_DIALOG_AREA_WIDTH', '50%'),      //dialog打开的大小
+    'dialog_area_height' => env('IFRAME_TAB_DIALOG_AREA_HEIGHT', '90vh')
 ];
 ```
 

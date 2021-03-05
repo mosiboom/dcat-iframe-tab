@@ -15,9 +15,13 @@ class IframeTabProvider extends ServiceProvider
      */
     public function register()
     {
-        //注册 Dcat Content 的容器事件
+        //注册 Dcat的容器事件
         if (config('iframe_tab.enable')) {
             $this->app->resolving(Content::class, function ($content, $app) {
+                //设置view 为 iframe.full-content
+                $content->view('iframe-tab::full-content');
+            });
+            Content::resolving(function (Content $content) {
                 //设置view 为 iframe.full-content
                 $content->view('iframe-tab::full-content');
             });
