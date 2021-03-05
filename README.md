@@ -54,7 +54,7 @@ return [
         'app_version' => env('APP_VERSION', '')
     ],
     'cache' => env('IFRAME_TAB_CACHE', false),		                        //是否开启标签页缓存
-    /**/
+    /*解决小屏幕下iframe-tab打开弹窗时，占比太大导致的提交按钮看不到，dcat中写死了dialog的宽高(不使用Iframe-tab不会出现这样的问题)*/
     'dialog_area_width' => env('IFRAME_TAB_DIALOG_AREA_WIDTH', '50%'),      //dialog打开的大小
     'dialog_area_height' => env('IFRAME_TAB_DIALOG_AREA_HEIGHT', '90vh')
 ];
