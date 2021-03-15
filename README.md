@@ -32,7 +32,16 @@ $ php artisan vendor:publish --tag=iframe-tab.view
 `php artisan vendor:publish --tag=iframe-tab` 会将css和js发布`public/vendor/iframe-tab`
 
 ## 更新
+相关更新内容请关注github的`tag`，里面有每个版本详细的更新：[https://github.com/mosiboom/dcat-iframe-tab/releases](https://github.com/mosiboom/dcat-iframe-tab/releases)
 
+基本迭代更新命令：
+```apacheconfig
+composer remove mosiboom/dcat-iframe-tab
+composer require mosiboom/dcat-iframe-tab:版本号
+php artisan vendor:publish --tag=iframe-tab --force
+```
+
+其他文件覆盖更新：
 ```
 $ php artisan vendor:publish --tag=iframe-tab --force
 $ php artisan vendor:publish --tag=iframe-tab.config --force
