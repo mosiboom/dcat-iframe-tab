@@ -208,6 +208,9 @@ $(function () {
                 let tab_content_element = $($(this).parents(".nav-link").attr('href'))
                 parent_obj.remove()
                 tab_content_element.remove()
+                if (iframeTab.USE_CACHE === 1) {
+                    iframeTab.storageDelete($(this).parents(".nav-link").attr('id').split("-").pop())
+                }
                 e.stopPropagation()
             });
             /*双击关闭*/
@@ -268,6 +271,17 @@ $(function () {
                     return true;
                 }
             })
+            /*在新标签页中打开*/
+            $(document).on('click', '.tab-open-link', function () {
+                if (iframeTab.CLICK_TAB !== '') {
+                    let content_id = iframeTab.CLICK_TAB.attr("href")
+                    let content = $(`${content_id}>iframe`).attr("src")
+                    window.open(content)
+                }
+                document.oncontextmenu = function () {
+                    return true;
+                }
+            })
             /*关闭所有标签页*/
             $(document).on('click', '.tab-close-all', function () {
                 if (iframeTab.CLICK_TAB !== '') {
@@ -295,6 +309,7 @@ $(function () {
                             iframeTab.CLICK_TAB.click()
                             return;
                         }
+                        iframeTab.cacheUpdateTabBar($(this))
                         $(this).find('.iframe-tab-close-btn').click()
                     })
                 }

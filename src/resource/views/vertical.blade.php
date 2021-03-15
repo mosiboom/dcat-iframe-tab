@@ -35,6 +35,7 @@
 
                 <li class="li_separate"></li>
                 <li><a href="javascript:;" class="menu-item tab-copy-link">复制标签页链接</a></li>
+                <li><a href="javascript:;" class="menu-item tab-open-link">新标签页中打开</a></li>
             </ul>
         </div>
         <div
