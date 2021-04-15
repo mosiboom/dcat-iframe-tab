@@ -450,5 +450,7 @@ $(function () {
             return md5(href + this.TAB_STORAGE_KEY).substr(8, 16)
         },
     }
+    /*挂载*/
+    window.iframeTabParent = {swiper, elements, iframeTabTemplate, iframeTab}
     iframeTab.init()
 })

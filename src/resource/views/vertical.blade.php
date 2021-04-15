@@ -87,6 +87,7 @@
 <script src="{{asset('/vendor/iframe-tab/js/md5.js')}}"></script>
 <script src="{{asset('/vendor/iframe-tab/js/swiper.min.js')}}"></script>
 <script src="{{asset('/vendor/iframe-tab/js/base.js')}}"></script>
+<script src="{{asset('/vendor/iframe-tab/js/extend.js')}}"></script>
 </body>
 
 </html>
