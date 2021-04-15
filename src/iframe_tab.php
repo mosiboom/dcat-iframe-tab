@@ -1,11 +1,17 @@
 <?php
 return [
-    'enable' => env('START_IFRAME_TAB', true),
-    'footer_setting' => [
-        'copyright' => env('APP_NAME', ''),
-        'app_version' => env('APP_VERSION', '')
+    # 是否开启iframe_tab
+    'enable'                => env('START_IFRAME_TAB', true),
+    # 底部设置
+    'footer_setting'        => [
+        'copyright'         => env('APP_NAME', ''),
+        'app_version'       => env('APP_VERSION', '')
     ],
-    'cache' => env('IFRAME_TAB_CACHE', false),
-    'dialog_area_width' => env('IFRAME_TAB_DIALOG_AREA_WIDTH', '50%'),
-    'dialog_area_height' => env('IFRAME_TAB_DIALOG_AREA_HEIGHT', '90vh')
+    # 是否开启标签页缓存
+    'cache'                 => env('IFRAME_TAB_CACHE', false),
+    # 更改dialog表单默认宽高
+    'dialog_area_width'     => env('IFRAME_TAB_DIALOG_AREA_WIDTH', '50%'),
+    'dialog_area_height'    => env('IFRAME_TAB_DIALOG_AREA_HEIGHT', '90vh'),
+    # iframe-tab占用的路由 默认 '/'
+    'router'                => '/'
 ];

@@ -9,6 +9,6 @@ if (config('iframe_tab.enable')) {
     ];
     app('router')->group($attributes, function ($router) {
         $controller = IframeController::class;
-        $router->get('/', $controller . '@index');
+        $router->get(config('iframe_tab.router','/'), $controller . '@index');
     });
 }
