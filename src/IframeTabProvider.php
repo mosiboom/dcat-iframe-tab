@@ -41,7 +41,7 @@ class IframeTabProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__ . '/resource/views', 'iframe-tab');
         $this->loadRoutesFrom(__DIR__ . '/routes.php');
         $this->publishes([
-            __DIR__ . '/assets/js' => public_path('vendor/iframe-tab/js'),
+            __DIR__ . '/assets/js' => public_path('vendor/iframe-tab/js/compress'),
             __DIR__ . '/assets/css' => public_path('vendor/iframe-tab/css'),
         ], 'iframe-tab');
         $this->publishes([
