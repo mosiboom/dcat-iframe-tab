@@ -57,15 +57,28 @@ This will override css and js files to `/public/vendor/laravel-admin-ext/iframe-
 
 ```php
 return [
-    'enable' => env('START_IFRAME_TAB', true),	                            //是否开启
-    'footer_setting' => [							                        //页脚配置
-        'copyright' => env('APP_NAME', ''),			
-        'app_version' => env('APP_VERSION', '')
+    # 是否开启iframe_tab
+    'enable'                => env('START_IFRAME_TAB', true),
+    # 底部设置
+    'footer_setting'        => [
+        'copyright'         => env('APP_NAME', ''),
+        'app_version'       => env('APP_VERSION', '')
     ],
-    'cache' => env('IFRAME_TAB_CACHE', false),		                        //是否开启标签页缓存
-    /*解决小屏幕下iframe-tab打开弹窗时，占比太大导致的提交按钮看不到，dcat中写死了dialog的宽高(不使用Iframe-tab不会出现这样的问题)*/
-    'dialog_area_width' => env('IFRAME_TAB_DIALOG_AREA_WIDTH', '50%'),      //dialog打开的大小
-    'dialog_area_height' => env('IFRAME_TAB_DIALOG_AREA_HEIGHT', '90vh')
+    # 是否开启标签页缓存
+    'cache'                 => env('IFRAME_TAB_CACHE', false),
+    # 更改dialog表单默认宽高
+    'dialog_area_width'     => env('IFRAME_TAB_DIALOG_AREA_WIDTH', '50%'),
+    'dialog_area_height'    => env('IFRAME_TAB_DIALOG_AREA_HEIGHT', '90vh'),
+    # iframe-tab占用的路由 默认 '/'
+    'router'                => '/'
 ];
 ```
 
+## 新增扩展接口和扩展功能
+
+1. 用户可以在子页面引入 `public/vendor/iframe-tab/js/extend.js`文件，或者通过调用`window.iframeTabParent`全局对象来调用父级页面的iframe-tab
+2. 引入新功能：超链接监听打开新页面加入iframe-tab：用户可自行定义超链接按钮，以此来打开新标签页页面，通过添加`iframe-extends=true` 和 `iframe-tab=true` 两个属性
+    ```html
+        <a iframe-extends=true iframe-tab=true href="https://github.com/mosiboom/dcat-iframe-tab">添加新的标签页</a>
+    ```
+    
