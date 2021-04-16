@@ -28,7 +28,7 @@
     <div class="content-header">
         @yield('content-header')
     </div>
-    <div class="content-body" id="app" style="overflow: auto;">
+    <div class="content-body" id="app">
         {{-- 页面埋点--}}
         {!! admin_section(Dcat\Admin\Admin::SECTION['APP_INNER_BEFORE']) !!}
 

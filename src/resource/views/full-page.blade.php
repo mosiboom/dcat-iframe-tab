@@ -23,6 +23,15 @@
     {!! Dcat\Admin\Admin::asset()->headerJsToHtml() !!}
 
     {!! Dcat\Admin\Admin::asset()->cssToHtml() !!}
+
+    <style>
+        #app section.content>.row{
+            margin-right: 0;
+        }
+        #app .dcat-box{
+            overflow: auto;
+        }
+    </style>
 </head>
 
 <body class="dcat-admin-body full-page {{ $configData['body_class'] }}">
