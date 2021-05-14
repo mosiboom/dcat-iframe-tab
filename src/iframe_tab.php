@@ -13,5 +13,7 @@ return [
     'dialog_area_width'     => env('IFRAME_TAB_DIALOG_AREA_WIDTH', '50%'),
     'dialog_area_height'    => env('IFRAME_TAB_DIALOG_AREA_HEIGHT', '90vh'),
     # iframe-tab占用的路由 默认 '/'
-    'router'                => '/'
+    'router'                => '/',
+    # iframe-tab域名（一般用于多应用后台）
+    'domain'                 => null
 ];
