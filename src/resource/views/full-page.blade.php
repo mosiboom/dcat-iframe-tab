@@ -29,7 +29,7 @@
             margin-right: 0;
         }
         #app .dcat-box{
-            overflow: auto;
+            overflow: revert;
         }
     </style>
 </head>
