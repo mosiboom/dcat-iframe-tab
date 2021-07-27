@@ -64,15 +64,14 @@
     <p class="clearfix blue-grey lighten-2 mb-0 text-center">
             <span class="text-center d-block d-md-inline-block mt-25">
                 Powered by
-                @if(isset(config('admin.iframe_tab')['footer_setting'])&&config('admin.iframe_tab')['footer_setting']['copyright']!='')
-                    <a target=""
-                       href="javascript:void 0">{{ config('admin.iframe_tab')['footer_setting']['copyright'] }}</a>
+                @if(isset(config('iframe_tab')['footer_setting'])&&config('iframe_tab')['footer_setting']['copyright']!='')
+                    <a href="javascript:;">{{ config('iframe_tab')['footer_setting']['copyright'] }}</a>
                 @else
                     <a target="_blank" href="https://github.com/jqhph/dcat-admin">Dcat Admin</a>
                 @endif
                 <span>&nbsp;·&nbsp;</span>
-                @if(isset(config('admin.iframe_tab')['footer_setting'])&&config('admin.iframe_tab')['footer_setting']['app_version']!='')
-                    v{{ config('admin.iframe_tab')['footer_setting']['app_version'] }}
+                @if(isset(config('iframe_tab')['footer_setting'])&&config('iframe_tab')['footer_setting']['app_version']!='')
+                    v{{ config('iframe_tab')['footer_setting']['app_version'] }}
                 @else
                     v{{ Dcat\Admin\Admin::VERSION }}
                 @endif
