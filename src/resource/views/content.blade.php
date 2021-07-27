@@ -28,7 +28,11 @@
     <title>{{ Dcat\Admin\Admin::title() }} @if($header) | {{ $header }}@endif</title>
 
     <script>
-        Dcat.pjaxResponded()
+        try {
+            Dcat.pjaxResponded();
+        }catch (e) {
+            Dcat.wait();
+        }
     </script>
 
     {!! Dcat\Admin\Admin::asset()->cssToHtml() !!}
