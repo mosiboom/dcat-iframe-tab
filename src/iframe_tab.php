@@ -15,5 +15,7 @@ return [
     # iframe-tab占用的路由 默认 '/'
     'router'                => '/',
     # iframe-tab域名（一般用于多应用后台）
-    'domain'                 => null
+    'domain'                 => null,
+    # 是否开启懒加载模式
+    'lazy_load'              => true
 ];

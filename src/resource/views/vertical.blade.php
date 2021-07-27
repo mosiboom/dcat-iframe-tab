@@ -18,6 +18,13 @@
         {{config('iframe_tab.cache')?1:0}}
         @endif
                 ">
+        <input type="hidden" id="iframe_tab_lazy_load" value="
+       @if(isset(config('admin.layout')['iframe_tab_lazy_load']))
+        {{config('admin.layout')['iframe_tab_lazy_load']}}
+        @else
+        {{config('iframe_tab.lazy_load')?1:0}}
+        @endif
+                ">
         <input type="hidden" id="use_id" value="{{Admin::user()->id}}">
         {{--右键菜单监控--}}
         <div class="mouse-click-menu">

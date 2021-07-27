@@ -71,7 +71,9 @@ return [
     'dialog_area_height'    => env('IFRAME_TAB_DIALOG_AREA_HEIGHT', '90vh'),
     # iframe-tab占用的路由 默认 '/'
     'router'                => '/',
-    'domain'                => null
+    'domain'                => null,
+    # 是否开启懒加载模式
+    'lazy_load'              => true
 ];
 ```
 

@@ -67,6 +67,7 @@ $(function () {
         TAB_STORAGE_KEY: $('#use_id').val() + '_6d9e562706a26cd2',
         CLICK_TAB: '',
         USE_CACHE: parseInt($('#iframe_tab_cache').val()),
+        LAZY_LOAD: parseInt($('#iframe_tab_lazy_load').val()),
         storageGet() {
             let data = localStorage.getItem(this.TAB_STORAGE_KEY)
             return JSON.parse(data) === null ? {} : JSON.parse(data)
@@ -221,6 +222,13 @@ $(function () {
             /*联动菜单样式*/
             $(document).on('click', '#iframe-tab .nav-link', function () {
                 let content_id = $(this).attr('href')
+                if (iframeTab.LAZY_LOAD === 1 && $(`${content_id}`).length <= 0) {
+                    let content_without_suffix = content_id.replace('#iframe-', "")
+                    console.log(content_without_suffix);
+                    console.log(iframeTab.storageGet());
+                    elements.iframe_tabContent.append(iframeTab.storageGet()[content_without_suffix].tab_content_html)
+                    iframeTab.removeTabBarStyle()
+                }
                 let content_element = $(`${content_id}`)
                 iframeTab.linkMenuAndIframeTab(content_id)
                 $(this).addClass('active');
@@ -231,6 +239,7 @@ $(function () {
                 swiper.slideTo(_index)
                 swiper.updateSlides();
                 iframeTab.cacheUpdateTabBar($(this))
+
             });
             /*获取上一个活动标签*/
             $(document).on('hidden.bs.tab', '#iframe-tab .nav-link', function (event) {
@@ -258,7 +267,7 @@ $(function () {
             $(document).on('click', '.tab-copy-link', function () {
                 if (iframeTab.CLICK_TAB !== '') {
                     let content_id = iframeTab.CLICK_TAB.attr("href")
-                    let content = $(`${content_id}>iframe`).attr("src")
+                    let content = $(`${content_id} > iframe`).attr("src")
                     let $temp = $('<input>');
                     $("body").append($temp);
                     $temp.val(content).select();
@@ -275,7 +284,7 @@ $(function () {
             $(document).on('click', '.tab-open-link', function () {
                 if (iframeTab.CLICK_TAB !== '') {
                     let content_id = iframeTab.CLICK_TAB.attr("href")
-                    let content = $(`${content_id}>iframe`).attr("src")
+                    let content = $(`${content_id} > iframe`).attr("src")
                     window.open(content)
                 }
                 document.oncontextmenu = function () {
@@ -333,7 +342,7 @@ $(function () {
             /*刷新当前标签页*/
             $(document).on('click', '.tab-refresh', function () {
                 if (iframeTab.CLICK_TAB !== '') {
-                    let iframe_element = $(`${iframeTab.CLICK_TAB.attr("href")}>iframe`),
+                    let iframe_element = $(`${iframeTab.CLICK_TAB.attr("href")} > iframe`),
                         src = iframe_element.attr('src')
                     iframe_element.attr('src', '')
                     iframe_element.attr('src', src)
@@ -357,21 +366,35 @@ $(function () {
                 return;
             }
             let list = this.storageGet()
-            if (list.length === 0) {
+            console.log(list);
+            if (list.length === 0 || JSON.stringify(list) === "{}") {
                 return;
             }
             iframeTab.removeTabBarStyle()
             for (let i in list) {
                 swiper.appendSlide(list[i].tab_html)
-                elements.iframe_tabContent.append(list[i].tab_content_html)
+            }
+            if (iframeTab.LAZY_LOAD === 0) {
+                for (let i in list) {
+                    elements.iframe_tabContent.append(list[i].tab_content_html)
+                }
             }
             /*如果html里面没有active,则默认使用第一个*/
-            if (iframeTab.findIframeTabActiveElement().length <= 0) {
+            let active_ele = iframeTab.findIframeTabActiveElement()
+            let is_first = false;
+            if (active_ele.length <= 0) {
+                is_first = true;
                 let first_url = $(elements.menu_link[0]).attr('href');
                 let first_id = this.generateID(first_url);
                 $(`#iframe-home-${first_id}`).click()
             }
-            let content_id = iframeTab.findIframeTabActiveElement().attr('href')
+            let content_id = active_ele.attr('href')
+            if (iframeTab.LAZY_LOAD === 1 && !is_first) {
+                let content_without_suffix = content_id.replace('#iframe-', "")
+                console.log(content_without_suffix);
+                console.log(list[content_without_suffix].tab_content_html);
+                elements.iframe_tabContent.append(list[content_without_suffix].tab_content_html)
+            }
             iframeTab.linkMenuAndIframeTab(content_id)
         },
         cacheUpdateTabBar(tab_link_element) {
@@ -392,7 +415,7 @@ $(function () {
         },
         linkMenuAndIframeTab(content_id) {
             /*链接Iframe tab和Menu*/
-            let href = $(`${content_id}>iframe`).attr('src')
+            let href = $(`${content_id} > iframe`).attr('src')
             let items = elements.menu_content.find('li')
             items.find('a').each(function () {
                 let item_href = $(this).attr('href')
