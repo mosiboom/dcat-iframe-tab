@@ -66,7 +66,7 @@
          style="min-height:calc(100vh - 45px);box-sizing: border-box;padding: 1.5rem 3rem 3rem 3rem">
         @yield('app')
     </div>
-    @if(isset(config('iframe_tab')['footer_setting']['use_menu'])&&!config('iframe_tab')['footer_setting']['use_menu'])
+    @if(!isset(config('iframe_tab')['footer_setting']['use_menu'])||!config('iframe_tab')['footer_setting']['use_menu'])
         <footer style="margin-left: 0" class="main-footer pt-1">
             <p class="clearfix blue-grey lighten-2 mb-0 text-center">
             <span class="text-center d-block d-md-inline-block mt-25">
