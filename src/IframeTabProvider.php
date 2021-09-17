@@ -22,6 +22,8 @@ class IframeTabProvider extends ServiceProvider
                 //设置view 为 iframe.full-content
                 $content->view('iframe-tab::full-content');
                 if(strpos(request()->getUri(),'auth/login') !== false){
+                    #退出登录不记录当前页面
+                    session()->forget('url.intended');
                     Admin::script(<<<JS
                     if (window != top)
                         top.location.href = location.href; 
