@@ -25,10 +25,11 @@
     {!! Dcat\Admin\Admin::asset()->cssToHtml() !!}
 
     <style>
-        #app section.content>.row{
+        #app section.content > .row {
             margin-right: 0;
         }
-        #app .dcat-box{
+
+        #app .dcat-box {
             overflow: revert;
         }
     </style>
@@ -38,7 +39,11 @@
 
 <script>
     var Dcat = CreateDcat({!! Dcat\Admin\Admin::jsVariables() !!});
-    var storage = window.parent.localStorage || {setItem:function () {}, getItem: function () {}},
+    var storage = window.parent.localStorage || {
+            setItem: function () {
+            }, getItem: function () {
+            }
+        },
         key = 'dcat-admin-theme-mode',
         mode = storage.getItem(key)
 
@@ -57,34 +62,37 @@
 {!! admin_section(Dcat\Admin\Admin::SECTION['BODY_INNER_BEFORE']) !!}
 
 <div class="app-content content">
-    <div class="wrapper" id="{{ $pjaxContainerId }}" style="box-sizing: border-box;padding: 1.5rem 3rem 3rem 3rem">
+    <div class="wrapper" id="{{ $pjaxContainerId }}"
+         style="min-height:calc(100vh - 45px);box-sizing: border-box;padding: 1.5rem 3rem 3rem 3rem">
         @yield('app')
     </div>
-    <footer class="main-footer pt-1">
-        <p class="clearfix blue-grey lighten-2 mb-0 text-center">
+    @if(isset(config('iframe_tab')['footer_setting']['use_menu'])&&!config('iframe_tab')['footer_setting']['use_menu'])
+        <footer style="margin-left: 0" class="main-footer pt-1">
+            <p class="clearfix blue-grey lighten-2 mb-0 text-center">
             <span class="text-center d-block d-md-inline-block mt-25">
                 Powered by
-                @if(isset(config('admin.iframe_tab')['footer_setting'])&&config('admin.iframe_tab')['footer_setting']['copyright']!='')
+                @if(isset(config('iframe_tab')['footer_setting'])&&config('iframe_tab')['footer_setting']['copyright']!='')
                     <a target=""
-                       href="javascript:void 0">{{ config('admin.iframe_tab')['footer_setting']['copyright'] }}</a>
+                       href="javascript:void 0">{{ config('iframe_tab')['footer_setting']['copyright'] }}</a>
                 @else
                     <a target="_blank" href="https://github.com/jqhph/dcat-admin">Dcat Admin</a>
                 @endif
                 <span>&nbsp;·&nbsp;</span>
-                @if(isset(config('admin.iframe_tab')['footer_setting'])&&config('admin.iframe_tab')['footer_setting']['app_version']!='')
-                    v{{ config('admin.iframe_tab')['footer_setting']['app_version'] }}
+                @if(isset(config('iframe_tab')['footer_setting'])&&config('iframe_tab')['footer_setting']['app_version']!='')
+                    v{{ config('iframe_tab')['footer_setting']['app_version'] }}
                 @else
                     v{{ Dcat\Admin\Admin::VERSION }}
                 @endif
 
             </span>
 
-            <button class="btn btn-primary btn-icon scroll-top pull-right"
-                    style="position: fixed;bottom: 2%; right: 10px;display: none">
-                <i class="feather icon-arrow-up"></i>
-            </button>
-        </p>
-    </footer>
+                <button class="btn btn-primary btn-icon scroll-top pull-right"
+                        style="position: fixed;bottom: 2%; right: 10px;display: none">
+                    <i class="feather icon-arrow-up"></i>
+                </button>
+            </p>
+        </footer>
+    @endif
 </div>
 
 {!! admin_section(Dcat\Admin\Admin::SECTION['BODY_INNER_AFTER']) !!}

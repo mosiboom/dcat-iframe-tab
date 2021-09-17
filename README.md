@@ -62,7 +62,9 @@ return [
     # 底部设置
     'footer_setting'        => [
         'copyright'         => env('APP_NAME', ''),
-        'app_version'       => env('APP_VERSION', '')
+        'app_version'       => env('APP_VERSION', ''),
+        # 是否将底部置于菜单下
+        'use_menu'          => false
     ],
     # 是否开启标签页缓存
     'cache'                 => env('IFRAME_TAB_CACHE', false),

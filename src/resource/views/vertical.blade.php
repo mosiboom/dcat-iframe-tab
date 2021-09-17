@@ -59,6 +59,23 @@
         </div>
     </div>
 </div>
+<div id="footer-template" style="display: none">
+    <div
+            style="text-align:center;width: 100%;position: absolute;bottom: 0;height: 45px;line-height: 45px;background: #efefef">
+        <span class="text-center d-block d-md-inline-block mt-25">
+                &copy;
+                @if(isset(config('iframe_tab')['footer_setting'])&&config('iframe_tab')['footer_setting']['copyright']!='')
+                <a target=""
+                   href="javascript:void 0">{{ config('iframe_tab')['footer_setting']['copyright'] }}</a>
+            @else
+                <a target="_blank" href="https://github.com/jqhph/dcat-admin">Dcat Admin</a>
+            @endif
+                <span>&nbsp;·&nbsp;</span>
+                {{date('Y')}}
+        </span>
+    </div>
+
+</div>
 
 {!! admin_section(Dcat\Admin\Admin::SECTION['BODY_INNER_AFTER']) !!}
 
@@ -69,6 +86,12 @@
 <script src="{{asset('/vendor/iframe-tab/js/swiper.min.js')}}"></script>
 <script src="{{asset('/vendor/iframe-tab/js/base.js')}}"></script>
 <script src="{{asset('/vendor/iframe-tab/js/extend.js')}}"></script>
+@if(isset(config('iframe_tab')['footer_setting']['use_menu'])&&config('iframe_tab')['footer_setting']['use_menu']==true)
+    <script>
+        let html = $('#footer-template').html()
+        $('.main-sidebar').append(html);
+    </script>
+@endif
 </body>
 
 </html>
