@@ -66,13 +66,19 @@ return [
     # 更改dialog表单默认宽高
     'dialog_area_width'     => env('IFRAME_TAB_DIALOG_AREA_WIDTH', '50%'),
     'dialog_area_height'    => env('IFRAME_TAB_DIALOG_AREA_HEIGHT', '90vh'),
-    # iframe-tab占用的路由 默认 '/'
-    'router'                => '/',
+    # iframe-tab占用的路由 默认 '/dashboard'
+    'router'                => '/dashboard',
     'domain'                => null,
     # 是否开启懒加载模式
     'lazy_load'              => true
 ];
 ```
+## 默认后台访问地址
+
+```
+/admin/dashboard
+```
+
 
 ## 新增扩展接口和扩展功能
 
