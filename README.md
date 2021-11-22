@@ -27,6 +27,12 @@ $ php artisan vendor:publish --tag=iframe-tab.config
 $ php artisan vendor:publish --tag=iframe-tab.view
 ```
 
+## 默认后台访问地址
+
+```
+/admin/dashboard
+```
+
 ## 更新
 相关更新内容请关注github的`tag`，里面有每个版本详细的更新：[https://github.com/mosiboom/dcat-iframe-tab/releases](https://github.com/mosiboom/dcat-iframe-tab/releases)
 
@@ -73,11 +79,7 @@ return [
     'lazy_load'              => true
 ];
 ```
-## 默认后台访问地址
 
-```
-/admin/dashboard
-```
 
 
 ## 新增扩展接口和扩展功能
