@@ -27,7 +27,9 @@ $ php artisan vendor:publish --tag=iframe-tab.config
 $ php artisan vendor:publish --tag=iframe-tab.view
 ```
 
-## 默认后台访问地址
+然后 **开发工具** => **扩展** => **mosiboom.dcat-iframe-tab** 启用
+
+## 默认后台新访问地址
 
 ```
 /admin/dashboard
