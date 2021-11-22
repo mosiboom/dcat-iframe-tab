@@ -21,15 +21,11 @@ $ composer require mosiboom/dcat-iframe-tab
 然后运行：
 
 ```
-# 发布扩展必备文件
-$ php artisan vendor:publish --tag=iframe-tab
-# 发布扩展配置文件
+# 发布扩展配置文件 (可以不发布)
 $ php artisan vendor:publish --tag=iframe-tab.config
 # 发布扩展的视图文件(如想自定义某些内容可发布出去，建议不要使用)
 $ php artisan vendor:publish --tag=iframe-tab.view
 ```
-
-`php artisan vendor:publish --tag=iframe-tab` 会将css和js发布`public/vendor/iframe-tab`
 
 ## 更新
 相关更新内容请关注github的`tag`，里面有每个版本详细的更新：[https://github.com/mosiboom/dcat-iframe-tab/releases](https://github.com/mosiboom/dcat-iframe-tab/releases)
@@ -43,11 +39,10 @@ php artisan vendor:publish --tag=iframe-tab --force
 
 其他文件覆盖更新：
 ```
-$ php artisan vendor:publish --tag=iframe-tab --force
 $ php artisan vendor:publish --tag=iframe-tab.config --force
 ```
 
-This will override css and js files to `/public/vendor/laravel-admin-ext/iframe-tabs/`
+This will override css and js files to `/public/vendor/dcat-admin-extensions/dcat-iframe-tab/`
 
 此操作会覆盖css和js还有配置文件，配置文件可以根据自己的需要来选择是否强制覆盖
 
@@ -81,7 +76,7 @@ return [
 
 ## 新增扩展接口和扩展功能
 
-1. 用户可以在子页面引入 `public/vendor/iframe-tab/js/extend.js`文件，或者通过调用`window.iframeTabParent`全局对象来调用父级页面的iframe-tab
+1. 用户可以在子页面引入 `vendor/dcat-admin-extensions/dcat-iframe-tab/js/extend.js`文件，或者通过调用`window.iframeTabParent`全局对象来调用父级页面的iframe-tab
 2. 引入新功能：超链接监听打开新页面加入iframe-tab：用户可自行定义超链接按钮，以此来打开新标签页页面，通过添加`iframe-extends=true` 和 `iframe-tab=true` 两个属性
 ```html
 <a iframe-extends=true iframe-tab=true href="https://github.com/mosiboom/dcat-iframe-tab">添加新的标签页</a>

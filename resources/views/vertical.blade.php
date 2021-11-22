@@ -1,6 +1,6 @@
 <body
-        class="dcat-admin-body sidebar-mini layout-fixed {{ $configData['body_class']}} {{ $configData['sidebar_class'] }}
-        {{ $configData['navbar_class'] === 'fixed-top' ? 'navbar-fixed-top' : '' }} ">
+    class="dcat-admin-body sidebar-mini layout-fixed {{ $configData['body_class']}} {{ $configData['sidebar_class'] }}
+    {{ $configData['navbar_class'] === 'fixed-top' ? 'navbar-fixed-top' : '' }} ">
 
 <script>
     var Dcat = CreateDcat({!! Dcat\Admin\Admin::jsVariables() !!});
@@ -17,14 +17,14 @@
         @else
         {{config('iframe_tab.cache')?1:0}}
         @endif
-                ">
+            ">
         <input type="hidden" id="iframe_tab_lazy_load" value="
        @if(isset(config('admin.layout')['iframe_tab_lazy_load']))
         {{config('admin.layout')['iframe_tab_lazy_load']}}
         @else
         {{config('iframe_tab.lazy_load')?1:0}}
         @endif
-                ">
+            ">
         <input type="hidden" id="use_id" value="{{Admin::user()->id}}">
         {{--右键菜单监控--}}
         <div class="mouse-click-menu">
@@ -46,8 +46,8 @@
             </ul>
         </div>
         <div
-                class="iframe-tab-container {{mosi_iframeTabBodyClass(config('admin.layout')['body_class'])}}"
-                id="iframe-tab-container">
+            class="iframe-tab-container {{  Mosiboom\DcatIframeTab\Helper::mosi_iframeTabBodyClass(config('admin.layout')['body_class'])}}"
+            id="iframe-tab-container">
             <div class="swiper-container">
                 <ul class="nav nav-pills mb-3 swiper-wrapper" id="iframe-tab" role="tablist"></ul>
             </div>
@@ -61,7 +61,7 @@
 </div>
 <div id="footer-template" style="display: none">
     <div
-            style="text-align:center;width: 100%;position: absolute;bottom: 0;height: 45px;line-height: 45px;background: #efefef">
+        style="text-align:center;width: 100%;position: absolute;bottom: 0;height: 45px;line-height: 45px;background: #efefef">
         <span class="text-center d-block d-md-inline-block mt-25">
                 &copy;
                 @if(isset(config('iframe_tab')['footer_setting'])&&config('iframe_tab')['footer_setting']['copyright']!='')
@@ -82,10 +82,10 @@
 {!! Dcat\Admin\Admin::asset()->jsToHtml() !!}
 
 <script>Dcat.boot();</script>
-<script src="{{asset('/vendor/iframe-tab/js/md5.js')}}"></script>
-<script src="{{asset('/vendor/iframe-tab/js/swiper.min.js')}}"></script>
-<script src="{{asset('/vendor/iframe-tab/js/base.js')}}"></script>
-<script src="{{asset('/vendor/iframe-tab/js/extend.js')}}"></script>
+<script src="{{asset('/vendor/dcat-admin-extensions/mosiboom/dcat-iframe-tab/js/md5.js')}}"></script>
+<script src="{{asset('/vendor/dcat-admin-extensions/mosiboom/dcat-iframe-tab/js/swiper.min.js')}}"></script>
+<script src="{{asset('/vendor/dcat-admin-extensions/mosiboom/dcat-iframe-tab/js/base.js')}}"></script>
+<script src="{{asset('/vendor/dcat-admin-extensions/mosiboom/dcat-iframe-tab/js/extend.js')}}"></script>
 @if(isset(config('iframe_tab')['footer_setting']['use_menu'])&&config('iframe_tab')['footer_setting']['use_menu']==true)
     <script>
         let html = $('#footer-template').html()

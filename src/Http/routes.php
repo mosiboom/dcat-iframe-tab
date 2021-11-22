@@ -1,7 +1,6 @@
 <?php
 
-use Mosiboom\DcatIframeTab\Controllers\IframeController;
-
+use Mosiboom\DcatIframeTab\Http\Controllers\DcatIframeTabController;
 if (config('iframe_tab.enable')) {
     $attributes = [
         'prefix'        => config('admin.route.prefix'),
@@ -9,7 +8,7 @@ if (config('iframe_tab.enable')) {
         'domain'        => config('iframe_tab.domain', null)
     ];
     app('router')->group($attributes, function ($router) {
-        $controller = IframeController::class;
+        $controller = DcatIframeTabController::class;
         $router->get(config('iframe_tab.router','/'), $controller . '@index');
     });
 }

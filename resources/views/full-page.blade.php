@@ -100,6 +100,6 @@
 {!! Dcat\Admin\Admin::asset()->jsToHtml() !!}
 
 <script>Dcat.boot();</script>
-<script src="{{asset('/vendor/iframe-tab/js/extend.js')}}"></script>
+<script src="{{asset('/vendor/dcat-admin-extensions/mosiboom/dcat-iframe-tab/js/extend.js')}}"></script>
 </body>
 </html>
