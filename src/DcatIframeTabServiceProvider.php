@@ -27,8 +27,6 @@ class DcatIframeTabServiceProvider extends ServiceProvider
     {
         parent::init();
 
-//		Admin::requireAssets('@mosiboom.dcat-iframe-tab');
-
         if (!config('iframe_tab.enable')) {
             return;
         }
@@ -44,7 +42,8 @@ class DcatIframeTabServiceProvider extends ServiceProvider
             if (strpos(request()->getUri(), 'auth/login') !== false) {
                 #退出登录不记录当前页面
                 session()->forget('url.intended');
-                Admin::script(<<<JS
+                Admin::script(
+                    <<<JS
                     if (window != top)
                         top.location.href = location.href;
 JS
@@ -55,7 +54,8 @@ JS
             //设置view 为 iframe.full-content
             $content->view('iframe-tab::full-content');
             if (strpos(request()->getUri(), 'auth/login') !== false) {
-                Admin::script(<<<JS
+                Admin::script(
+                    <<<JS
                     if (window != top)
                         top.location.href = location.href;
 JS
@@ -63,20 +63,21 @@ JS
             }
         });
         Grid::resolving(function (Grid $grid) {
-            $grid->setDialogFormDimensions(config('iframe_tab.dialog_area_width'),
-                config('iframe_tab.dialog_area_height'));
+            $grid->setDialogFormDimensions(
+                config('iframe_tab.dialog_area_width'),
+                config('iframe_tab.dialog_area_height')
+            );
         });
 
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__ . '/resource/views' => resource_path('views/vendor/iframe-tab'),
+                __DIR__
+                .'/resource/views' => resource_path('views/vendor/iframe-tab'),
             ], 'iframe-tab.view');
 
             $this->publishes([
                 __DIR__.'/iframe_tab.php' => config_path('iframe_tab.php'),
             ], 'iframe-tab.config');
         }
-
-
     }
 }

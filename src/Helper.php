@@ -10,10 +10,12 @@ class Helper
             if (!is_array($body_class)) {
                 $body_class = explode(' ', $body_class);
             }
-            $iframe_body_class = array_reduce($body_class,
+            $iframe_body_class = array_reduce(
+                $body_class,
                 function ($result, $item) {
                     return $result.' iframe-tab-'.$item;
-                });
+                }
+            );
         } else {
             $iframe_body_class = '';
         }
