@@ -80,7 +80,7 @@ return [
 ```
 ## Dcat-admin Homepage
 1.  modify the `app/admin/routes.php` homepage from '/' to '/home'
-1.  go to the site and in the `admin / menu`  modify the index entry to /home
+2.  go to the site and in the `admin / menu`  modify the index entry URI from `/` to `/home`
 
 ## 新增扩展接口和扩展功能
 
