@@ -78,6 +78,10 @@ return [
     'lazy_load'              => true
 ];
 ```
+## Dcat-admin Homepage
+ modify the `app/admin/routes.php` homepage from '/' to '/home'
+ go to the site and in the `admin / menu`  modify the index entry to /home
+
 
 ## 新增扩展接口和扩展功能
 
